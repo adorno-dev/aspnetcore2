@@ -1,0 +1,31 @@
+@page
+@model IndexModel
+<h1>Contacts</h1>
+<form method="POST">
+    <h3>Message: @Model.Message</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var contact in Model.Customers)
+            {
+                <tr>
+                    <td>@contact.Id</td>
+                    <td>@contact.Name</td>
+                    <td>
+                        <a asp-page="./edit" asp-route-id="@contact.Id">Edit</a>
+                        <!-- asp-page-handler="delete" é um manipulador do para uma acao do POST neste caso -->
+                        <!-- rendezira  formaction="/?id=1&amp;handler=delete", ele invoca OnPost<Delete>[Async] -->
+                        <!-- isso nos permite criar metodos Post variados, por exemplo PostDelete, PostUpdate etc... -->
+                        <button type="submit" asp-page-handler="delete" asp-route-id="@contact.Id">Delete</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</form>
+<br />

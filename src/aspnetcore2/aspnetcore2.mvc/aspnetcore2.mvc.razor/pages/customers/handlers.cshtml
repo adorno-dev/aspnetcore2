@@ -1,0 +1,14 @@
+@* podemos configurar rotas passando argumentos para @page "{handler?} onde ? marca como opcional" *@
+@page "{handler?}"
+@model MultipleHandlerModel
+<h2>Multiple Handlers Per Page</h2>
+<p>Enter your name.</p>
+<div asp-validation-summary="All"></div>
+<form method="POST">
+    <div>
+        Name: <input asp-for="Customer.Name" />
+        <input type="submit" asp-page-handler="JoinList" value="Join" />
+        <input type="submit" asp-page-handler="JoinListUC" value="JoinUC" />
+    </div>
+</form>
+<br />

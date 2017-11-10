@@ -1,0 +1,12 @@
+@page
+@model CreatePageModel
+<html>
+    <body>
+        <p>Enter your name.</p>
+        <div asp-validation-summary="All"></div>
+        <form method="POST">
+            <div>Name: <input asp-for="Customer.Name" /> <input type="submit" value="Submit" /></div>
+        </form>
+        <br />
+    </body>
+</html>

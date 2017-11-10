@@ -1,0 +1,19 @@
+@* Exemplo do edit como rota --> http://localhost:5000/edit/1 .. retorna 404 caso o parametro nao seja informado *@
+@page "{id:int}"
+@model Razor.Pages.EditModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{ ViewData["Title"] = "Edit Customer"; }
+<h1>Edit Customer - @Model.Customer.Id</h1>
+<form method="POST">
+    <div asp-validation-summary="All"></div>
+    <input asp-for="Customer.Id" type="hidden" />
+    <div>
+        <label asp-for="Customer.Name"></label>
+        <div>
+            <input asp-for="Customer.Name" />
+            <span asp-validation-for="Customer.Name"></span>
+            <button type="submit">Save</button>
+        </div>
+    </div>
+    <br />
+</form>

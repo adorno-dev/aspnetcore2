@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Razor Pages Sample</title>
+</head>
+<body>
+    <a asp-page="/index">Home</a>
+    @RenderBody()
+
+    <a asp-page="/customers/index">[Customers]</a>
+    <a asp-page="/customers/create">[Create Customers]</a>
+    <a asp-page="/customers/handlers">[Test Handlers]</a>
+</body>
+</html>
