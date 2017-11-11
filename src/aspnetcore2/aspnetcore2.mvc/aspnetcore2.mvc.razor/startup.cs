@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using Razor.Pages.Data;
 using Microsoft.Extensions.Configuration;
+using AspnetCore2.Mvc.Razor.Conventions;
 
 namespace AspnetCore2.Mvc.Razor
 {
@@ -23,7 +24,12 @@ namespace AspnetCore2.Mvc.Razor
         public void ConfigureServices(IServiceCollection services)
             => services.RazorEngineAsLowerCase()
                        .AddDbContext<AppDbContext>(options => options.UseInMemoryDatabase("sample"))
-                       .AddMvc();
+                       .AddMvc()
+                       .AddRazorPagesOptions(options =>
+                       {
+                           options.Conventions.Add(new GlobalTemplatePageRouteModelConvention());
+                       });
+
                 //     .AddRazorPagesOptions(options => // customizando o path das razor pages
                 //     {
                 //         options.RootDirectory = "mypages";
