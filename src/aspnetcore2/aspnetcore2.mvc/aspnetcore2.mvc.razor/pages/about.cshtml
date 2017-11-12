@@ -1,0 +1,15 @@
+@* {id?} rota opcional padrao adicionada em @page *@
+@* @page "{id?}" *@
+@page
+@using Razor.Pages
+@model AboutModel
+@* <h3>About</h3> *@
+@* @RouteData.Values["globalTemplate"] recebe outro argumento declarado nas convencoes do Razor *@
+@* Ver em startup.cs e o arquivo global_template_page_route.cs *@
+@* <p>Route data for 'globalTemplate' was provided: @RouteData.Values["globalTemplate"]</p> *@
+<h1>@ViewData["Title"]</h1>
+<p><code><b>Type: </b><i>http://localhost:5000/about/globalroutevalue/aboutroutevalue</i></code></p>
+<h2>@Model.Message</h2>
+<p>Use this area to provide additional information.</p>
+<p>@Model.RouteDataGlobalTemplateValue</p>
+<p>@Model.RouteDataAboutTemplateValue</p>

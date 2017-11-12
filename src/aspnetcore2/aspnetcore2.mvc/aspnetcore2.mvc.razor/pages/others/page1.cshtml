@@ -1,0 +1,12 @@
+@page
+@model Page1Model
+@{ ViewData["Title"] = "Others/Page1"; }
+<p>
+    <code>
+        <b>type: </b><i>http://localhost:5000/others/page1/globalroutevalue/otherpagesroutevalues</i>
+    </code>
+</p>
+<h1>@ViewData["Title"]</h1>
+<h2>@Model.Message</h2>
+<p>@Model.RouteDataGlobalTemplateValue</p>
+<p>@Model.RouteDataOtherPagesTemplateValue</p>
