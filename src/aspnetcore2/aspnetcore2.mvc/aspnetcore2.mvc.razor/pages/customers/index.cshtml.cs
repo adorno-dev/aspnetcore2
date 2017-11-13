@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Razor.Pages.Data;
 using Razor.Pages.Models;
 
-namespace Razor.Pages
+namespace Razor.Pages.Customers
 {       
     public class IndexModel : PageModel
     {

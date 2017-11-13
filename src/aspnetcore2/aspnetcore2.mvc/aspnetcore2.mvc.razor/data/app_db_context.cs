@@ -7,5 +7,6 @@ namespace Razor.Pages.Data
     {
         public AppDbContext(DbContextOptions options) : base(options) {}
         public DbSet<Customer> Customers { get; set; }
+        public DbSet<Message> Messages { get; set; }
     }
 }

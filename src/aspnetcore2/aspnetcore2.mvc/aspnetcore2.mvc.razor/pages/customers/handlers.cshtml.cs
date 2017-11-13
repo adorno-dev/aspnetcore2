@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Razor.Pages.Data;
 using Razor.Pages.Models;
 
-namespace Razor.Pages
+namespace Razor.Pages.Customers
 {
     public class MultipleHandlerModel : PageModel
     {
