@@ -1,0 +1,23 @@
+﻿@using Aspnet.Core.DependencyInjectionViews.Models
+@using Aspnet.Core.DependencyInjectionViews.Data.Services
+@inject ProfileOptionsService Options
+@model Profile
+@{ ViewData["Title"] = "Index"; }
+
+<h1>Update Profile</h1>
+<div>
+    <label asp-for="Name"></label>
+    <input asp-for="Name" />
+</div>
+<div>
+    <label asp-for="Gender"></label>
+    <select asp-for="Gender" asp-items="Options.ListGenders().Select(g => new SelectListItem { Value = g, Text = g })"></select>
+</div>
+<div>
+    <label asp-for="State"></label>
+    <select asp-for="State" asp-items="Options.ListStates().Select(s => new SelectListItem { Value = s.Code, Text = s.Name })"></select>
+</div>
+<div>
+    <label asp-for="FavColor"></label>
+    <select asp-for="FavColor" asp-items="Options.ListColors().Select(c => new SelectListItem { Value = c, Text = c })"></select>
+</div>

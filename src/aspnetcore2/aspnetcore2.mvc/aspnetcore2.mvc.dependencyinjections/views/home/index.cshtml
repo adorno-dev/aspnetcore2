@@ -1,0 +1,18 @@
+﻿@using AspnetCore2.Mvc.DependencyInjections.Models
+@using AspnetCore2.Mvc.DependencyInjections.Data.Services
+
+@inject StatisticService Statistic
+@{ ViewData["Title"] = "Index"; }
+@model IEnumerable<TodoItem>
+<div>
+    <h1>Todo List</h1>
+    <ul>
+        <li>Total: @Statistic.GetCount()</li>
+        <li>Completed: @Statistic.GetCompletedCount()</li>
+        <li>Averange Priority: @Statistic.GetAveragePriority()</li>
+    </ul>
+</div>
+<table>
+    <thead><tr><th>Name</th><th>Priority</th><th>Done?</th></tr></thead>
+    <tbody>@foreach (var item in Model) { <tr> <td>@item.Name</td> <td>@item.Priority</td> <td>@item.IsDone</td> </tr> }</tbody>
+</table>
