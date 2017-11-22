@@ -1,0 +1,8 @@
+@using AspnetCore2.Mvc.PartialViews.Models
+@model CountriesViewModel
+@{ CountriesViewModel instance = Model; }
+
+@if (instance == null)
+{ instance = new CountriesViewModel(); }
+
+<select asp-for="@instance.Country" asp-items="@instance.Countries"></select> <br />

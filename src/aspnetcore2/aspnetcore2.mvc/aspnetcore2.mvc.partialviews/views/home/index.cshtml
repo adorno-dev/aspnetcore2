@@ -1,0 +1,41 @@
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!-- Partial Views Current Folder -->
+
+@Html.Partial("partial_country_selector")                         <!-- Returns IHtmlContent -->
+@await Html.PartialAsync("partial_country_selector")              <!-- Returns Task<IHtmlContent> -->
+
+@{ Html.RenderPartial("partial_country_selector"); }              <!-- Returns void but render inside a razor block -->
+@{ await Html.RenderPartialAsync("partial_country_selector"); }   <!-- Returns void task but render inside a razor block -->
+
+<br />
+
+<!-- Partial View Other Paths -->
+
+@Html.Partial("~/views/partial/partial_language_selector.cshtml")
+@await Html.PartialAsync("~/views/partial/partial_language_selector.cshtml")
+
+
+@{ Html.RenderPartial("~/views/partial/partial_language_selector.cshtml"); }
+@{ await Html.RenderPartialAsync("~/views/partial/partial_language_selector.cshtml"); }
+
+<!-- Partial View Data Accessing -->
+
+@{ 
+    var countries = new CountriesViewModel
+    {
+        Country = "pt-BR",
+        Countries = new List<SelectListItem>
+        {
+           new SelectListItem { Value = "en-US", Text = "English (United States)" },
+           new SelectListItem { Value = "pt-BR", Text = "Portuguese (Brazilian)" },
+           new SelectListItem { Value = "es", Text = "Spanish (Spain)" },
+           new SelectListItem { Value = "jp", Text = "Japonese (Japan)" }
+        }
+    };
+}
+
+@Html.Partial("partial_country_selector", model: @countries)

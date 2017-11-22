@@ -1,0 +1,8 @@
+@using AspnetCore2.Mvc.PartialViews.Models
+@model LanguageViewModel
+@{ LanguageViewModel instance = Model; }
+
+@if (instance == null)
+{ instance = new LanguageViewModel(); }
+
+<select asp-for="@instance.Language" asp-items="@instance.Languages"></select> <br />
