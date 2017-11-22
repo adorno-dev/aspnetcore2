@@ -1,0 +1,34 @@
+@model Todo
+@inject IViewLocalizer Localizer
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Localization Page</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("English", "Index", "Home", new { culture = "en-US" })
+        <span>-</span>
+        @Html.ActionLink("Portuguese", "Index", "Home", new { culture = "pt-BR" })
+    </p>
+    <h3>@ViewData["Welcome"]</h3>
+    <p>@Localizer["Welcome"]</p>
+    <p>
+        <form asp-controller="Home" asp-action="Post" method="Post">
+            <div>
+                <label asp-for="Text"></label>
+                <input asp-for="Text"></input>
+                <!-- <span asp-validation-for="Text" name="Text"></span> -->
+                <label asp-for="Duration"></label>
+                <input asp-for="Duration"></input>
+                <span asp-validation-for="Duration" name="Duration"></span>
+                <input type="submit" value="Post" />
+            </div>
+        </form>
+    </p>
+</body>
+</html>
