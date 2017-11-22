@@ -1,0 +1,34 @@
+﻿@using Aspnet.Core.Mvc.Models
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<form asp-controller="Home" asp-action="Index" method="post">
+    <input type="submit" value="Register" />
+</form>
+
+<address>
+    <strong>Support:</strong><email>Support</email><br />
+    <strong>Marketing:</strong><email>Marketing</email>
+</address>
+
+<p bold>Use this area to provide additional information.</p>
+
+<bold>Is this bold?</bold>
+
+<h3>Website Information</h3>
+
+<website-info info="@Model" />
+
+<div condition="@Model.Approved">
+    <p>
+        This website has <strong surround="em">@Model.Approved</strong> been approved yet.
+        Visit www.contoso.com for more information.
+    </p>
+</div>
+
+<p>Visit us at http://docs.asp.net or at www.microsoft.com</p>
+
+@section Scripts { <script type="text/javascript" src=""></script> }

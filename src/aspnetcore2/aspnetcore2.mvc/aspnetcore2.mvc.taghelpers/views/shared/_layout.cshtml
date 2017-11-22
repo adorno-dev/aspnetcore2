@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <environment names="Development">
+        <!-- link rel ~ -->
+    </environment>
+    <environment names="Staging,Production">
+        <!-- link rel ~ -->
+    </environment>
+</head>
+<body>
+    @*<div class="nav-header">@await  Html.PartialAsync("_LoginPartial")</div>*@
+    <div class="container body-content">@RenderBody()</div>
+    <environment names="Development">
+        <!-- script src ~ -->
+    </environment>
+    <environment names="Staging,Production">
+        <!-- script src ~ -->
+    </environment>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

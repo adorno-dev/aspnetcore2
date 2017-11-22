@@ -1,0 +1,30 @@
+﻿@using Aspnet.Core.Mvc.Models
+@model Register
+@{ ViewData["Title"] = "Form"; }
+
+<form asp-controller="Home" asp-action="Form" method="post">
+    <span>Email:</span> <input asp-for="Email" /> 
+    <span>Password:</span> <input asp-for="Password" />
+    <input type="submit" value="Register" />
+</form>
+
+@{ var john = "John"; }
+
+<input type="hidden" asp-for="@john" />
+
+@{ 
+    var countries = new CountryViewModel("CA");
+    var countryGroups = new CountryViewModelGroup();
+}
+<p>
+    @Html.Partial("partial_countries", model: countries)
+</p>
+<p>
+    <select asp-for="@countries.Country" asp-items="Html.GetEnumSelectList<CountryEnum>()"></select>
+</p>
+
+<p>
+    <select asp-for="@countryGroups.Country" asp-items="@countryGroups.Countries" multiple>
+        <option value="">--None--</option>
+    </select>
+</p>
